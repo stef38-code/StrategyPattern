@@ -1,4 +1,11 @@
-package com.stephane.strategy.pattern.examples.generics;
+package com.stephane.strategy.pattern.examples.client.rest.strategy;
+
+import com.stephane.strategy.pattern.examples.client.rest.DataClientRest;
+import lombok.Getter;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestTemplate;
+
+import java.util.List;
 
 /*************************************************************
  *
@@ -14,10 +21,13 @@ package com.stephane.strategy.pattern.examples.generics;
  * Author: betton
  * ----------------------------------------------------------
  * Description:
- * https://magnus-k-karlsson.blogspot.com/2010/02/java-generics-example-strategy-pattern.html?m=1
  *************************************************************/
-public abstract class Strategy<D extends Data<?>> {
+public abstract class CommunStrategy<D extends DataClientRest<?>> {
+    @Getter
+    private RestTemplate restTemplate = new RestTemplate();
 
-    public abstract String exec(D data);
+    public abstract String getForObject(D data);
+
+    public abstract <T> ResponseEntity<List<T>> getExchange(D data);
 }
 

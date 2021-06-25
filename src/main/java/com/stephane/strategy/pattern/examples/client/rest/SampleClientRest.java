@@ -1,4 +1,4 @@
-package com.stephane.strategy.pattern.examples.generics;
+package com.stephane.strategy.pattern.examples.client.rest;
 
 /*************************************************************
  *
@@ -6,18 +6,14 @@ package com.stephane.strategy.pattern.examples.generics;
  *
  * ----------------------------------------------------------
  * Project: strategypattern
- * Package: com.stephane.strategy.pattern.examples.generics
+ * Package: com.stephane.strategy.pattern.examples.client.rest
  * ----------------------------------------------------------
- * Date: 24 juin 2021,
- * Time: 14:08
+ * Date: 25 juin 2021,
+ * Time: 13:23
  * ----------------------------------------------------------
  * Author: betton
  * ----------------------------------------------------------
  * Description:
- * https://magnus-k-karlsson.blogspot.com/2010/02/java-generics-example-strategy-pattern.html?m=1
  *************************************************************/
-public abstract class Strategy<D extends Data<?>> {
-
-    public abstract String exec(D data);
+public class SampleClientRest {
 }
-
