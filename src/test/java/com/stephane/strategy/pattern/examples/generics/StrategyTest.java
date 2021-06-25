@@ -26,5 +26,10 @@ class StrategyTest {
     void testFooStrategy() throws Exception {
         assertThat(Data.FOO_STRATEGY.exec(new FooData(3))).isEqualTo("Hi 3.0");
     }
+
+    @Test
+    void testBarStrategy() throws Exception {
+        assertThat(Data.BAR_STRATEGY.exec(new BarData(5))).isEqualTo("Hi 5.0");
+    }
 }
 

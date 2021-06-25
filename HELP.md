@@ -1,9 +1,13 @@
-# Getting Started
+# But du Projet
 
-### Reference Documentation
-For further reference, please consider the following sections:
+Arriver à créer une Rest stratégie pattern depuis la
+source :https://magnus-k-karlsson.blogspot.com/2010/02/java-generics-example-strategy-pattern.html?m=1
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.5.1/maven-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.5.1/maven-plugin/reference/html/#build-image)
+## données en ligne
+
+* [Pays](https://restcountries.eu/)
+* [dummy](http://dummy.restapiexample.com/)
+* [All](https://jsonplaceholder.typicode.com/)
+
+
 
