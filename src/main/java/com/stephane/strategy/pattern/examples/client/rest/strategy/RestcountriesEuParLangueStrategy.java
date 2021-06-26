@@ -33,21 +33,16 @@ public class RestcountriesEuParLangueStrategy extends CommunStrategy<Restcountri
     }
 
     @Override
-    public <T> ResponseEntity<List<T>> getExchange(RestcountriesEuParLangueData data) {
+    public <T> ResponseEntity<T> getExchange(RestcountriesEuParLangueData data) {
 // HttpHeaders
         HttpHeaders headers = new HttpHeaders();
 
         headers.setAccept(Arrays.asList(new MediaType[]{MediaType.APPLICATION_JSON}));
         // Request to return JSON format
         headers.setContentType(MediaType.APPLICATION_JSON);
-        // HttpEntity<String>: To get result as String.
         HttpEntity<String> entity = new HttpEntity<>(headers);
-        return getRestTemplate().exchange(url, HttpMethod.GET, entity, new ParameterizedTypeReference<List<T>>() {
+        return getRestTemplate().exchange(url, HttpMethod.GET, entity, new ParameterizedTypeReference<T>() {
         });
     }
 
-   /* @Override
-    public ResponseEntity<List<T>> getExchange(RestcountriesEuParNomData data) {
-
-    }*/
 }

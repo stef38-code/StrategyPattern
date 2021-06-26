@@ -33,7 +33,7 @@ public class RestcountriesEuParNomStrategy extends CommunStrategy<RestcountriesE
     }
 
     @Override
-    public <T> ResponseEntity<List<T>> getExchange(RestcountriesEuParNomData data) {
+    public <T> ResponseEntity<T> getExchange(RestcountriesEuParNomData data) {
 // HttpHeaders
         HttpHeaders headers = new HttpHeaders();
 
@@ -41,8 +41,8 @@ public class RestcountriesEuParNomStrategy extends CommunStrategy<RestcountriesE
         // Request to return JSON format
         headers.setContentType(MediaType.APPLICATION_JSON);
         // HttpEntity<String>: To get result as String.
-        HttpEntity<String> entity = new HttpEntity<String>(headers);
-        return getRestTemplate().exchange(url, HttpMethod.GET, entity, new ParameterizedTypeReference<List<T>>() {
+        HttpEntity<String> entity = new HttpEntity<>(headers);
+        return getRestTemplate().exchange(url, HttpMethod.GET, entity, new ParameterizedTypeReference<T>() {
         });
     }
 

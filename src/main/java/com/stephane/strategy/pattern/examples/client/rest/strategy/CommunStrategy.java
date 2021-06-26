@@ -28,6 +28,6 @@ public abstract class CommunStrategy<D extends DataClientRest<?>> {
 
     public abstract String getForObject(D data);
 
-    public abstract <T> ResponseEntity<List<T>> getExchange(D data);
+    public abstract <T> ResponseEntity<T> getExchange(D data);
 }
 
