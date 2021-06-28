@@ -5,8 +5,6 @@ import lombok.Getter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.List;
-
 /*************************************************************
  *
  * (c) Ag2r - La Mondiale, 2021. Tous droits reserves.
@@ -28,6 +26,6 @@ public abstract class CommunStrategy<D extends DataClientRest<?>> {
 
     public abstract String getForObject(D data);
 
-    public abstract <T> ResponseEntity<T> getExchange(D data);
+    public abstract <T> ResponseEntity<T> getExchange(Class<T> clazz);
 }
 

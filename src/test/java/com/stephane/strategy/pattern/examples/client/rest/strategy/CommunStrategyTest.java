@@ -11,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /*************************************************************
  *
@@ -44,20 +44,50 @@ class CommunStrategyTest {
 
     @Test
     void getFranceRestTemplate_getExchange_NOM() {
-        ResponseEntity<List< Response >> value = DataClientRest.RESTCOUNTRIES_EU_NOM.getExchange(new RestcountriesEuParNomData());
+        ResponseEntity<ResponseItem[]> value = DataClientRest.RESTCOUNTRIES_EU_NOM.getExchange(ResponseItem[].class);
         assertThat(value).isNotNull();
-        assertThat(value.getBody()).isNotNull();
-        log.info(String.valueOf(value.getBody()));
+        assertThat(value.getBody()).isNotNull().isNotEmpty();
+        ResponseItem[] response = value.getBody();
+        //List<ResponseItem> response = body[0].getResponse();
+        assertThat(response).isNotEmpty().hasSize(1);
+        ResponseItem ReponseFrance = response[0];
+        assertThat(ReponseFrance.getArea()).isEqualTo(640679);
+        assertThat(ReponseFrance.getNativeName()).isEqualTo("France");
+        assertThat(ReponseFrance.getCapital()).isEqualTo("Paris");
+        assertThat(ReponseFrance.getDemonym()).isEqualTo("French");
+        assertThat(ReponseFrance.getFlag()).isEqualTo("https://restcountries.eu/data/fra.svg");
+        assertThat(ReponseFrance.getAlpha2Code()).isEqualTo("FR");
+        assertThat(ReponseFrance.getLanguages()).isNotEmpty().hasSize(1);
+        assertThat(ReponseFrance.getBorders()).isNotEmpty().hasSize(8);
+        assertThat(ReponseFrance.getSubregion()).isEqualTo("Western Europe");
+        assertThat(ReponseFrance.getCallingCodes()).isNotEmpty().hasSize(1);
+        assertThat(ReponseFrance.getRegionalBlocs()).isNotEmpty().hasSize(1);
+        assertThat(ReponseFrance.getGini()).isEqualTo(32);
+        assertThat(ReponseFrance.getPopulation()).isEqualTo(66710000);
+        assertThat(ReponseFrance.getNumericCode()).isEqualTo("250");
+        assertThat(ReponseFrance.getAlpha3Code()).isEqualTo("FRA");
+        assertThat(ReponseFrance.getTopLevelDomain()).isNotEmpty().hasSize(1);
+        assertThat(ReponseFrance.getTimezones()).isNotEmpty().hasSize(12);
+        assertThat(ReponseFrance.getCioc()).isEqualTo("FRA");
+        assertThat(ReponseFrance.getTranslations()).isNotNull();
+        assertThat(ReponseFrance.getName()).isEqualTo("France");
+        assertThat(ReponseFrance.getAltSpellings()).isNotEmpty().hasSize(3);
+        assertThat(ReponseFrance.getRegion()).isEqualTo("Europe");
+        assertThat(ReponseFrance.getLatlng()).isNotEmpty().hasSize(2);
+        assertThat(ReponseFrance.getCurrencies()).isNotNull();
+
+
+        log.info(String.valueOf(response));
+
     }
 
     @Test
     void getFranceRestTemplate_getExchange_LANGUE() {
-        ResponseEntity<Response> value = DataClientRest.RESTCOUNTRIES_EU_LANGUE.getExchange(new RestcountriesEuParLangueData());
+        ResponseEntity<Response[]> value = DataClientRest.RESTCOUNTRIES_EU_LANGUE.getExchange(Response[].class);
         assertThat(value).isNotNull();
         assertThat(value.getBody()).isNotNull();
-        log.info(value.getBody().getClass().getSimpleName());
-        Response response = value.getBody();
-        List< ResponseItem > response1 = response.getResponse();
+        Response[] response = value.getBody();
+        List<ResponseItem> response1 = response[0].getResponse();
 
     /*    List< ResponseItem > responseItems = response.getResponse();
 

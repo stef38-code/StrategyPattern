@@ -2,11 +2,9 @@ package com.stephane.strategy.pattern.examples.client.rest.strategy;
 
 
 import com.stephane.strategy.pattern.examples.client.rest.data.RestcountriesEuParNomData;
-import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
 
 import java.util.Arrays;
-import java.util.List;
 
 /*************************************************************
  *
@@ -33,7 +31,7 @@ public class RestcountriesEuParNomStrategy extends CommunStrategy<RestcountriesE
     }
 
     @Override
-    public <T> ResponseEntity<T> getExchange(RestcountriesEuParNomData data) {
+    public <T> ResponseEntity<T> getExchange(Class<T> clazz) {
 // HttpHeaders
         HttpHeaders headers = new HttpHeaders();
 
@@ -42,8 +40,7 @@ public class RestcountriesEuParNomStrategy extends CommunStrategy<RestcountriesE
         headers.setContentType(MediaType.APPLICATION_JSON);
         // HttpEntity<String>: To get result as String.
         HttpEntity<String> entity = new HttpEntity<>(headers);
-        return getRestTemplate().exchange(url, HttpMethod.GET, entity, new ParameterizedTypeReference<T>() {
-        });
+        return getRestTemplate().exchange(url, HttpMethod.GET, entity, clazz);
     }
 
    /* @Override
