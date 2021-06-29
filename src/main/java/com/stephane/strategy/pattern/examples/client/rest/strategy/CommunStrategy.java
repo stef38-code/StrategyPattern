@@ -3,7 +3,7 @@ package com.stephane.strategy.pattern.examples.client.rest.strategy;
 import com.stephane.strategy.pattern.examples.client.rest.DataClientRest;
 import lombok.Getter;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.reactive.function.client.WebClient;
 
 /*************************************************************
  *
@@ -21,11 +21,23 @@ import org.springframework.web.client.RestTemplate;
  * Description:
  *************************************************************/
 public abstract class CommunStrategy<D extends DataClientRest<?>> {
-    @Getter
-    private RestTemplate restTemplate = new RestTemplate();
 
-    public abstract String getForObject(D data);
+    @Getter
+    private WebClient client = WebClient.create();
+
+    protected String getClientStringBody() {
+
+        return getClient()
+                .get()
+                .uri(getUrlValue())
+                .retrieve()
+                .bodyToMono(String.class)
+                .block();
+
+    }
 
     public abstract <T> ResponseEntity<T> getExchange(Class<T> clazz);
+
+    public abstract String getUrlValue();
 }
 

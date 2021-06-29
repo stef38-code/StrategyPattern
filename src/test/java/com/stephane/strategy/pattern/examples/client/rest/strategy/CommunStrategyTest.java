@@ -1,8 +1,6 @@
 package com.stephane.strategy.pattern.examples.client.rest.strategy;
 
 import com.stephane.strategy.pattern.examples.client.rest.DataClientRest;
-import com.stephane.strategy.pattern.examples.client.rest.data.RestcountriesEuParLangueData;
-import com.stephane.strategy.pattern.examples.client.rest.data.RestcountriesEuParNomData;
 import com.stephane.strategy.pattern.examples.client.rest.response.Response;
 import com.stephane.strategy.pattern.examples.client.rest.response.ResponseItem;
 import lombok.extern.slf4j.Slf4j;
@@ -32,14 +30,16 @@ import static org.assertj.core.api.Assertions.assertThat;
 class CommunStrategyTest {
     @Test
     void getFranceRestTemplate_getForObject_NOM() {
-        String value = DataClientRest.RESTCOUNTRIES_EU_NOM.getForObject(new RestcountriesEuParNomData());
+        String value = DataClientRest.RESTCOUNTRIES_EU_NOM.getClientStringBody();
         assertThat(value).isNotNull();
+        log.info(value);
     }
 
     @Test
     void getFranceRestTemplate_getForObject_LANGUE() {
-        String value = DataClientRest.RESTCOUNTRIES_EU_LANGUE.getForObject(new RestcountriesEuParLangueData());
+        String value = DataClientRest.RESTCOUNTRIES_EU_LANGUE.getClientStringBody();
         assertThat(value).isNotNull();
+        log.info(value);
     }
 
     @Test
