@@ -1,9 +1,8 @@
 package com.stephane.strategy.pattern.examples.client.rest.strategy;
 
 import com.stephane.strategy.pattern.examples.client.rest.DataClientRest;
-import lombok.Getter;
+import com.stephane.strategy.pattern.examples.client.rest.commun.DefaultCommunActions;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.reactive.function.client.WebClient;
 
 /*************************************************************
  *
@@ -20,24 +19,10 @@ import org.springframework.web.reactive.function.client.WebClient;
  * ----------------------------------------------------------
  * Description:
  *************************************************************/
-public abstract class CommunStrategy<D extends DataClientRest<?>> {
-
-    @Getter
-    private WebClient client = WebClient.create();
-
-    protected String getClientStringBody() {
-
-        return getClient()
-                .get()
-                .uri(getUrlValue())
-                .retrieve()
-                .bodyToMono(String.class)
-                .block();
-
-    }
+public abstract class CommunStrategy<D extends DataClientRest<?>> extends DefaultCommunActions {
 
     public abstract <T> ResponseEntity<T> getExchange(Class<T> clazz);
 
-    public abstract String getUrlValue();
+    public abstract String getUrl();
 }
 

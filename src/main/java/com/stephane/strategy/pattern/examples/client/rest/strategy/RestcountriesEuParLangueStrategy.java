@@ -36,7 +36,7 @@ public class RestcountriesEuParLangueStrategy extends CommunStrategy<Restcountri
     }
 
     @Override
-    public String getUrlValue() {
+    public String getUrl() {
         return url;
     }
 
