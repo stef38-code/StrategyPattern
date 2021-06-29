@@ -1,19 +1,15 @@
 package com.stephane.strategy.pattern.examples.client.rest.strategy;
 
 import com.stephane.strategy.pattern.examples.client.rest.DataClientRest;
-import com.stephane.strategy.pattern.examples.client.rest.response.Response;
 import com.stephane.strategy.pattern.examples.client.rest.response.ResponseItem;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
-import org.springframework.http.ResponseEntity;
-
-import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 /*************************************************************
  *
- * (c) Ag2r - La Mondiale, 2021. Tous droits reserves.
+ *
  *
  * ----------------------------------------------------------
  * Project: strategypattern
@@ -27,6 +23,10 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Description:
  *************************************************************/
 @Slf4j
+
+/*@SpringBootTest
+@TestPropertySource(properties = {"restcountries.rest.v2.lang.fr=https://restcountries.eu/rest/v2/lang/fr\n" ,
+        "restcountries.rest.v2.name.france=https://restcountries.eu/rest/v2/name/france"})*/
 class CommunStrategyTest {
     @Test
     void getFranceRestTemplate_getForObject_NOM() {
@@ -44,10 +44,9 @@ class CommunStrategyTest {
 
     @Test
     void getFranceRestTemplate_getExchange_NOM() {
-        ResponseEntity<ResponseItem[]> value = DataClientRest.RESTCOUNTRIES_EU_NOM.getExchange(ResponseItem[].class);
-        assertThat(value).isNotNull();
-        assertThat(value.getBody()).isNotNull().isNotEmpty();
-        ResponseItem[] response = value.getBody();
+        ResponseItem[] response = DataClientRest.RESTCOUNTRIES_EU_NOM.actionHttpGet(ResponseItem[].class);
+        assertThat(response).isNotNull();
+        assertThat(response).isNotNull().isNotEmpty();
         //List<ResponseItem> response = body[0].getResponse();
         assertThat(response).isNotEmpty().hasSize(1);
         ResponseItem ReponseFrance = response[0];
@@ -83,11 +82,9 @@ class CommunStrategyTest {
 
     @Test
     void getFranceRestTemplate_getExchange_LANGUE() {
-        ResponseEntity<Response[]> value = DataClientRest.RESTCOUNTRIES_EU_LANGUE.getExchange(Response[].class);
+        ResponseItem[] value = DataClientRest.RESTCOUNTRIES_EU_LANGUE.actionHttpGet(ResponseItem[].class);
         assertThat(value).isNotNull();
-        assertThat(value.getBody()).isNotNull();
-        Response[] response = value.getBody();
-        List<ResponseItem> response1 = response[0].getResponse();
+
 
     /*    List< ResponseItem > responseItems = response.getResponse();
 

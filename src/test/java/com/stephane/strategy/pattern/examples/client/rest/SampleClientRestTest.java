@@ -8,7 +8,7 @@ import org.springframework.web.client.RestTemplate;
 
 /*************************************************************
  *
- * (c) Ag2r - La Mondiale, 2021. Tous droits reserves.
+ *
  *
  * ----------------------------------------------------------
  * Project: strategypattern

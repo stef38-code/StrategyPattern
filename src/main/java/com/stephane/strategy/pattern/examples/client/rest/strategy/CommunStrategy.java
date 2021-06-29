@@ -2,11 +2,12 @@ package com.stephane.strategy.pattern.examples.client.rest.strategy;
 
 import com.stephane.strategy.pattern.examples.client.rest.DataClientRest;
 import com.stephane.strategy.pattern.examples.client.rest.commun.DefaultCommunActions;
-import org.springframework.http.ResponseEntity;
+
+import java.util.Map;
 
 /*************************************************************
  *
- * (c) Ag2r - La Mondiale, 2021. Tous droits reserves.
+ *
  *
  * ----------------------------------------------------------
  * Project: strategypattern
@@ -20,9 +21,13 @@ import org.springframework.http.ResponseEntity;
  * Description:
  *************************************************************/
 public abstract class CommunStrategy<D extends DataClientRest<?>> extends DefaultCommunActions {
-
-    public abstract <T> ResponseEntity<T> getExchange(Class<T> clazz);
-
+    /**
+     * Url de connexion
+     *
+     * @return String
+     */
     public abstract String getUrl();
+
+    public abstract Map<String, String> getHeaders();
 }
 

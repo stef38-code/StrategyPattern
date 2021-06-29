@@ -9,7 +9,7 @@ import com.stephane.strategy.pattern.examples.client.rest.strategy.Restcountries
 
 /*************************************************************
  *
- * (c) Ag2r - La Mondiale, 2021. Tous droits reserves.
+ *
  *
  * ----------------------------------------------------------
  * Project: strategypattern

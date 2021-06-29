@@ -4,7 +4,7 @@ import com.stephane.strategy.pattern.examples.client.rest.DataClientRest;
 
 /*************************************************************
  *
- * (c) Ag2r - La Mondiale, 2021. Tous droits reserves.
+ *
  *
  * ----------------------------------------------------------
  * Project: strategypattern

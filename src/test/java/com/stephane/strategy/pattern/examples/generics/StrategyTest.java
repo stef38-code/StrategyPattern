@@ -6,7 +6,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 /*************************************************************
  *
- * (c) Ag2r - La Mondiale, 2021. Tous droits reserves.
+ *
  *
  * ----------------------------------------------------------
  * Project: strategypattern

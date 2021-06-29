@@ -2,7 +2,7 @@ package com.stephane.strategy.pattern.examples.client.rest;
 
 /*************************************************************
  *
- * (c) Ag2r - La Mondiale, 2021. Tous droits reserves.
+ *
  *
  * ----------------------------------------------------------
  * Project: strategypattern

@@ -2,11 +2,13 @@ package com.stephane.strategy.pattern.examples.client.rest.strategy;
 
 
 import com.stephane.strategy.pattern.examples.client.rest.data.RestcountriesEuParLangueData;
-import org.springframework.http.ResponseEntity;
+import org.springframework.beans.factory.annotation.Value;
+
+import java.util.Map;
 
 /*************************************************************
  *
- * (c) Ag2r - La Mondiale, 2021. Tous droits reserves.
+ *
  *
  * ----------------------------------------------------------
  * Project: strategypattern
@@ -22,22 +24,17 @@ import org.springframework.http.ResponseEntity;
 public class RestcountriesEuParLangueStrategy extends CommunStrategy<RestcountriesEuParLangueData> {
     private String url = "https://restcountries.eu/rest/v2/lang/fr";
 
-    @Override
-    public <T> ResponseEntity<T> getExchange(Class<T> clazz) {
-// HttpHeaders
-        /*HttpHeaders headers = new HttpHeaders();
-
-        headers.setAccept(Arrays.asList(new MediaType[]{MediaType.APPLICATION_JSON}));
-        // Request to return JSON format
-        headers.setContentType(MediaType.APPLICATION_JSON);
-        HttpEntity<String> entity = new HttpEntity<>(headers);
-        return getRestTemplate().exchange(url, HttpMethod.GET, entity, clazz);*/
-        return null;
-    }
+    @Value("${restcountries.rest.v2.lang.fr}")
+    private String url2;
 
     @Override
     public String getUrl() {
         return url;
+    }
+
+    @Override
+    public Map<String, String> getHeaders() {
+        return getDefaultHeaders();
     }
 
 }
