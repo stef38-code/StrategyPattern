@@ -32,7 +32,5 @@ public abstract class ClientRestStrategies< D extends ClientRestStrategies< D > 
     public static final CommunStrategy< RestJsonPlaceHolderPostStrategies > REST_JSON_PLACE_HOLDER_POST_STRATEGY = new RestJsonPlaceHolderPostStrategy();
     public static final CommunStrategy< RestDummyExampleEmployeeStrategies > REST_DUMMY_EXAMPLE_EMPLOYEE_STRATEGY = new RestDummyExampleEmployeeStrategy();
 
-    private ClientRestStrategies() {
-        throw new IllegalStateException("ClientRestStrategies class");
-    }
+    
 }
