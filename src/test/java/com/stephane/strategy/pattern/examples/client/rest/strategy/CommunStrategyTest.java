@@ -1,7 +1,7 @@
 package com.stephane.strategy.pattern.examples.client.rest.strategy;
 
 import com.stephane.strategy.pattern.examples.client.rest.DataClientRest;
-import com.stephane.strategy.pattern.examples.client.rest.response.ResponseItem;
+import com.stephane.strategy.pattern.examples.client.rest.response.countries.ResponseItem;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
