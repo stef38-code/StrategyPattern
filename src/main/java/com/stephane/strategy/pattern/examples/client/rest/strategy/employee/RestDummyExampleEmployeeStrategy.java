@@ -1,7 +1,8 @@
-package com.stephane.strategy.pattern.examples.client.rest.strategy;
+package com.stephane.strategy.pattern.examples.client.rest.strategy.employee;
 
 
-import com.stephane.strategy.pattern.examples.client.rest.data.RestcountriesEuParNomData;
+import com.stephane.strategy.pattern.examples.client.rest.data.RestDummyExampleEmployeeStrategies;
+import com.stephane.strategy.pattern.examples.client.rest.strategy.CommunStrategy;
 
 import java.util.Map;
 
@@ -20,9 +21,9 @@ import java.util.Map;
  * ----------------------------------------------------------
  * Description:
  *************************************************************/
-public class RestcountriesEuParNomStrategy extends CommunStrategy<RestcountriesEuParNomData> {
+public class RestDummyExampleEmployeeStrategy extends CommunStrategy< RestDummyExampleEmployeeStrategies > {
 
-    private String url = "https://restcountries.eu/rest/v2/name/france";
+    private String url = "http://dummy.restapiexample.com/api/v1/employees";
 
 
     @Override
@@ -31,7 +32,7 @@ public class RestcountriesEuParNomStrategy extends CommunStrategy<RestcountriesE
     }
 
     @Override
-    public Map<String, String> getHeaders() {
+    public Map< String, String > getHeaders() {
         return getDefaultHeaders();
     }
 

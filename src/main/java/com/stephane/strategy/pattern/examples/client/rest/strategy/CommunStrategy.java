@@ -1,6 +1,6 @@
 package com.stephane.strategy.pattern.examples.client.rest.strategy;
 
-import com.stephane.strategy.pattern.examples.client.rest.DataClientRest;
+import com.stephane.strategy.pattern.examples.client.rest.ClientRestStrategies;
 import com.stephane.strategy.pattern.examples.client.rest.commun.DefaultCommunActions;
 
 import java.util.Map;
@@ -20,14 +20,16 @@ import java.util.Map;
  * ----------------------------------------------------------
  * Description:
  *************************************************************/
-public abstract class CommunStrategy<D extends DataClientRest<?>> extends DefaultCommunActions {
+public abstract class CommunStrategy< D extends ClientRestStrategies< ? > > extends DefaultCommunActions {
     /**
      * Url de connexion
      *
      * @return String
      */
+    @Override
     public abstract String getUrl();
 
-    public abstract Map<String, String> getHeaders();
+    @Override
+    public abstract Map< String, String > getHeaders();
 }
 

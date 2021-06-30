@@ -1,6 +1,6 @@
 package com.stephane.strategy.pattern.examples.client.rest.data;
 
-import com.stephane.strategy.pattern.examples.client.rest.DataClientRest;
+import com.stephane.strategy.pattern.examples.client.rest.ClientRestStrategies;
 
 /*************************************************************
  *
@@ -17,5 +17,5 @@ import com.stephane.strategy.pattern.examples.client.rest.DataClientRest;
  * ----------------------------------------------------------
  * Description:
  *************************************************************/
-public class RestcountriesEuParNomData extends DataClientRest<RestcountriesEuParNomData> {
+public class RestcountriesEuParNomStrategies extends ClientRestStrategies< RestcountriesEuParNomStrategies > {
 }

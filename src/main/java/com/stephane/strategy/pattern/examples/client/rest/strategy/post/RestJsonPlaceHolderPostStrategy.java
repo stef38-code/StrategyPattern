@@ -1,7 +1,8 @@
-package com.stephane.strategy.pattern.examples.client.rest.strategy;
+package com.stephane.strategy.pattern.examples.client.rest.strategy.post;
 
 
-import com.stephane.strategy.pattern.examples.client.rest.data.RestcountriesEuParLangueData;
+import com.stephane.strategy.pattern.examples.client.rest.data.RestJsonPlaceHolderPostStrategies;
+import com.stephane.strategy.pattern.examples.client.rest.strategy.CommunStrategy;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.util.Map;
@@ -21,8 +22,8 @@ import java.util.Map;
  * ----------------------------------------------------------
  * Description:
  *************************************************************/
-public class RestcountriesEuParLangueStrategy extends CommunStrategy<RestcountriesEuParLangueData> {
-    private String url = "https://restcountries.eu/rest/v2/lang/fr";
+public class RestJsonPlaceHolderPostStrategy extends CommunStrategy< RestJsonPlaceHolderPostStrategies > {
+    private String url = "https://jsonplaceholder.typicode.com/posts";
 
     @Value("${restcountries.rest.v2.lang.fr}")
     private String url2;
@@ -33,7 +34,7 @@ public class RestcountriesEuParLangueStrategy extends CommunStrategy<Restcountri
     }
 
     @Override
-    public Map<String, String> getHeaders() {
+    public Map< String, String > getHeaders() {
         return getDefaultHeaders();
     }
 

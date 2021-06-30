@@ -1,11 +1,18 @@
 package com.stephane.strategy.pattern.examples.client.rest.strategy;
 
-import com.stephane.strategy.pattern.examples.client.rest.DataClientRest;
+import com.stephane.strategy.pattern.examples.client.rest.ClientRestStrategies;
 import com.stephane.strategy.pattern.examples.client.rest.response.countries.ResponseItem;
+import com.stephane.strategy.pattern.examples.client.rest.response.employee.Data;
+import com.stephane.strategy.pattern.examples.client.rest.response.employee.Employee;
+import com.stephane.strategy.pattern.examples.client.rest.response.post.Post;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+import java.util.stream.Stream;
+
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertAll;
 
 /*************************************************************
  *
@@ -28,23 +35,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 @TestPropertySource(properties = {"restcountries.rest.v2.lang.fr=https://restcountries.eu/rest/v2/lang/fr\n" ,
         "restcountries.rest.v2.name.france=https://restcountries.eu/rest/v2/name/france"})*/
 class CommunStrategyTest {
-    @Test
-    void getFranceRestTemplate_getForObject_NOM() {
-        String value = DataClientRest.RESTCOUNTRIES_EU_NOM.getClientStringBody();
-        assertThat(value).isNotNull();
-        log.info(value);
-    }
 
     @Test
-    void getFranceRestTemplate_getForObject_LANGUE() {
-        String value = DataClientRest.RESTCOUNTRIES_EU_LANGUE.getClientStringBody();
-        assertThat(value).isNotNull();
-        log.info(value);
-    }
-
-    @Test
-    void getFranceRestTemplate_getExchange_NOM() {
-        ResponseItem[] response = DataClientRest.RESTCOUNTRIES_EU_NOM.actionHttpGet(ResponseItem[].class);
+    void getActionHttpGet_NomFrance() {
+        ResponseItem[] response = ClientRestStrategies.RESTCOUNTRIES_EU_PAR_NOM_STRATEGY.actionHttpGet(ResponseItem[].class);
         assertThat(response).isNotNull();
         assertThat(response).isNotNull().isNotEmpty();
         //List<ResponseItem> response = body[0].getResponse();
@@ -81,38 +75,46 @@ class CommunStrategyTest {
     }
 
     @Test
-    void getFranceRestTemplate_getExchange_LANGUE() {
-        ResponseItem[] value = DataClientRest.RESTCOUNTRIES_EU_LANGUE.actionHttpGet(ResponseItem[].class);
-        assertThat(value).isNotNull();
+    void getActionHttpGet_LangueFr() {
+        ResponseItem[] response = ClientRestStrategies.RESTCOUNTRIES_EU_PAR_LANGUE_STRATEGY.actionHttpGet(ResponseItem[].class);
+        assertThat(response).isNotNull();
+        log.info(String.valueOf(response));
 
+    }
 
-    /*    List< ResponseItem > responseItems = response.getResponse();
+    @Test
+    void getActionHttpGet_Post() {
+        Post[] response = ClientRestStrategies.REST_JSON_PLACE_HOLDER_POST_STRATEGY.actionHttpGet(Post[].class);
+        assertThat(response).isNotNull().isNotEmpty();
+        log.info(String.valueOf(response));
+        Stream.of(response).forEach(post -> {
+                    assertAll("test post:" + post.toString(),
+                            () -> assertThat(post.getId()).isNotZero().isGreaterThan(0),
+                            () -> assertThat(post.getTitle()).isNotBlank(),
+                            () -> assertThat(post.getBody()).isNotBlank(),
+                            () -> assertThat(post.getUserId()).isNotZero().isGreaterThan(0));
+                }
 
+        );
+    }
 
-        assertThat(name.getName()).isEqualTo("France");*/
-        /*assertThat(name.getTopLevelDomain()).isNotEmpty();
-        assertThat(name.getAlpha2Code()).isEqualTo();
-        assertThat(name.getAlpha3Code()).isEqualTo();
-        assertThat(name.getCallingCodes()).isEqualTo();
-        assertThat(name.getCapital()).isEqualTo();
-        assertThat(name.getAltSpellings()).isEqualTo();
-        assertThat(name.getRegion()).isEqualTo();
-        assertThat(name.getSubregion()).isEqualTo();
-        assertThat(name.getPopulation()).isEqualTo();
-        assertThat(name.getLatlng()).isEqualTo();
-        assertThat(name.getDemonym()).isEqualTo();
-        assertThat(name.getArea()).isEqualTo();
-        assertThat(name.getGini()).isEqualTo();
-        assertThat(name.getTimezones()).isEqualTo();
-        assertThat(name.getBorders()).isEqualTo();
-        assertThat(name.getNativeName()).isEqualTo();
-        assertThat(name.getNumericCode()).isEqualTo();
-        assertThat(name.getCurrencies()).isEqualTo();
-        assertThat(name.getLanguages()).isEqualTo();
-        assertThat(name.getTranslations()).isEqualTo();
-        assertThat(name.getFlag()).isEqualTo();
-        assertThat(name.getRegionalBlocs()).isEqualTo();
-        assertThat(name.getCioc()).isEqualTo();*/
+    @Test
+    void getActionHttpGet_Employee() {
+        Employee response = ClientRestStrategies.REST_DUMMY_EXAMPLE_EMPLOYEE_STRATEGY.actionHttpGet(Employee.class);
+        assertThat(response).isNotNull();
+        log.info(String.valueOf(response));
+        assertThat(response.getStatus()).isNotBlank().isEqualTo("success");
+        List< Data > responseData = response.getData();
+
+        responseData.forEach(data -> {
+                    assertAll("test post:" + data.toString(),
+                            () -> assertThat(data.getId()).isNotZero().isGreaterThanOrEqualTo(0),
+                            () -> assertThat(data.getEmployeeSalary()).isGreaterThanOrEqualTo(0),
+                            () -> assertThat(data.getProfileImage()).isNull(),
+                            () -> assertThat(data.getEmployeeAge()).isGreaterThanOrEqualTo(0));
+                }
+
+        );
     }
 }
 
