@@ -1,10 +1,10 @@
-package com.stephane.strategy.pattern.examples.client.rest.data;
+package com.stephane.strategy.pattern.examples.client.rest.definition;
 
-import com.stephane.strategy.pattern.examples.client.rest.DataClientRest;
+import com.stephane.strategy.pattern.examples.client.rest.ClientRestStrategies;
 
 /*************************************************************
  *
- * (c) Ag2r - La Mondiale, 2021. Tous droits reserves.
+ *
  *
  * ----------------------------------------------------------
  * Project: strategypattern
@@ -17,5 +17,5 @@ import com.stephane.strategy.pattern.examples.client.rest.DataClientRest;
  * ----------------------------------------------------------
  * Description:
  *************************************************************/
-public class RestcountriesEuParLangueData extends DataClientRest<RestcountriesEuParLangueData> {
+public class RestcountriesEuParNomStrategies extends ClientRestStrategies< RestcountriesEuParNomStrategies > {
 }

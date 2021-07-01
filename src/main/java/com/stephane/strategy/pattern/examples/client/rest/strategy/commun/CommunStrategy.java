@@ -1,4 +1,8 @@
-package com.stephane.strategy.pattern.examples.generics;
+package com.stephane.strategy.pattern.examples.client.rest.strategy.commun;
+
+import com.stephane.strategy.pattern.examples.client.rest.ClientRestStrategies;
+
+import java.util.Map;
 
 /*************************************************************
  *
@@ -14,10 +18,17 @@ package com.stephane.strategy.pattern.examples.generics;
  * Author: betton
  * ----------------------------------------------------------
  * Description:
- * https://magnus-k-karlsson.blogspot.com/2010/02/java-generics-example-strategy-pattern.html?m=1
  *************************************************************/
-public abstract class Strategy<D extends Data<?>> {
+public abstract class CommunStrategy< D extends ClientRestStrategies< ? > > extends DefaultCommunActions {
+    /**
+     * Url de connexion
+     *
+     * @return String
+     */
+    @Override
+    public abstract String getUrl();
 
-    public abstract String exec(D data);
+    @Override
+    public abstract Map< String, String > getHeaders();
 }
 
