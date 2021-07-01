@@ -1,4 +1,4 @@
-package com.stephane.strategy.pattern.examples.client.rest.data;
+package com.stephane.strategy.pattern.examples.client.rest.definition;
 
 import com.stephane.strategy.pattern.examples.client.rest.ClientRestStrategies;
 
@@ -17,5 +17,5 @@ import com.stephane.strategy.pattern.examples.client.rest.ClientRestStrategies;
  * ----------------------------------------------------------
  * Description:
  *************************************************************/
-public class RestJsonPlaceHolderPostStrategies extends ClientRestStrategies< RestJsonPlaceHolderPostStrategies > {
+public class RestDummyExampleEmployeeStrategies extends ClientRestStrategies< RestDummyExampleEmployeeStrategies > {
 }

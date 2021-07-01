@@ -1,8 +1,8 @@
 package com.stephane.strategy.pattern.examples.client.rest.strategy.countries;
 
 
-import com.stephane.strategy.pattern.examples.client.rest.data.RestcountriesEuParNomStrategies;
-import com.stephane.strategy.pattern.examples.client.rest.strategy.CommunStrategy;
+import com.stephane.strategy.pattern.examples.client.rest.definition.RestcountriesEuParNomStrategies;
+import com.stephane.strategy.pattern.examples.client.rest.strategy.commun.CommunStrategy;
 
 import java.util.Map;
 

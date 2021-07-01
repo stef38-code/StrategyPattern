@@ -1,8 +1,8 @@
 package com.stephane.strategy.pattern.examples.client.rest.strategy.post;
 
 
-import com.stephane.strategy.pattern.examples.client.rest.data.RestJsonPlaceHolderPostStrategies;
-import com.stephane.strategy.pattern.examples.client.rest.strategy.CommunStrategy;
+import com.stephane.strategy.pattern.examples.client.rest.definition.RestJsonPlaceHolderPostStrategies;
+import com.stephane.strategy.pattern.examples.client.rest.strategy.commun.CommunStrategy;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.util.Map;

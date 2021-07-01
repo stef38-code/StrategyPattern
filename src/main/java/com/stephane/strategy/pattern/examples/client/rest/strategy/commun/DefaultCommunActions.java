@@ -1,4 +1,4 @@
-package com.stephane.strategy.pattern.examples.client.rest.commun;
+package com.stephane.strategy.pattern.examples.client.rest.strategy.commun;
 
 import lombok.AccessLevel;
 import lombok.Getter;

@@ -1,8 +1,8 @@
 package com.stephane.strategy.pattern.examples.client.rest.strategy.employee;
 
 
-import com.stephane.strategy.pattern.examples.client.rest.data.RestDummyExampleEmployeeStrategies;
-import com.stephane.strategy.pattern.examples.client.rest.strategy.CommunStrategy;
+import com.stephane.strategy.pattern.examples.client.rest.definition.RestDummyExampleEmployeeStrategies;
+import com.stephane.strategy.pattern.examples.client.rest.strategy.commun.CommunStrategy;
 
 import java.util.Map;
 

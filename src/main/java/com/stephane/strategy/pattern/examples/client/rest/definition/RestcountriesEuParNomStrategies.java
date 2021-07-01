@@ -1,4 +1,6 @@
-package com.stephane.strategy.pattern.examples.client.rest;
+package com.stephane.strategy.pattern.examples.client.rest.definition;
+
+import com.stephane.strategy.pattern.examples.client.rest.ClientRestStrategies;
 
 /*************************************************************
  *
@@ -9,11 +11,11 @@ package com.stephane.strategy.pattern.examples.client.rest;
  * Package: com.stephane.strategy.pattern.examples.client.rest
  * ----------------------------------------------------------
  * Date: 25 juin 2021,
- * Time: 13:23
+ * Time: 13:39
  * ----------------------------------------------------------
  * Author: betton
  * ----------------------------------------------------------
  * Description:
  *************************************************************/
-public class SampleClientRest {
+public class RestcountriesEuParNomStrategies extends ClientRestStrategies< RestcountriesEuParNomStrategies > {
 }

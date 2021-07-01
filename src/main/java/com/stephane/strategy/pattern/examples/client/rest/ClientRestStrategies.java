@@ -1,11 +1,11 @@
 package com.stephane.strategy.pattern.examples.client.rest;
 
 
-import com.stephane.strategy.pattern.examples.client.rest.data.RestDummyExampleEmployeeStrategies;
-import com.stephane.strategy.pattern.examples.client.rest.data.RestJsonPlaceHolderPostStrategies;
-import com.stephane.strategy.pattern.examples.client.rest.data.RestcountriesEuParLangueStrategies;
-import com.stephane.strategy.pattern.examples.client.rest.data.RestcountriesEuParNomStrategies;
-import com.stephane.strategy.pattern.examples.client.rest.strategy.CommunStrategy;
+import com.stephane.strategy.pattern.examples.client.rest.definition.RestDummyExampleEmployeeStrategies;
+import com.stephane.strategy.pattern.examples.client.rest.definition.RestJsonPlaceHolderPostStrategies;
+import com.stephane.strategy.pattern.examples.client.rest.definition.RestcountriesEuParLangueStrategies;
+import com.stephane.strategy.pattern.examples.client.rest.definition.RestcountriesEuParNomStrategies;
+import com.stephane.strategy.pattern.examples.client.rest.strategy.commun.CommunStrategy;
 import com.stephane.strategy.pattern.examples.client.rest.strategy.countries.RestcountriesEuParLangueStrategy;
 import com.stephane.strategy.pattern.examples.client.rest.strategy.countries.RestcountriesEuParNomStrategy;
 import com.stephane.strategy.pattern.examples.client.rest.strategy.employee.RestDummyExampleEmployeeStrategy;
@@ -32,5 +32,5 @@ public abstract class ClientRestStrategies< D extends ClientRestStrategies< D > 
     public static final CommunStrategy< RestJsonPlaceHolderPostStrategies > REST_JSON_PLACE_HOLDER_POST_STRATEGY = new RestJsonPlaceHolderPostStrategy();
     public static final CommunStrategy< RestDummyExampleEmployeeStrategies > REST_DUMMY_EXAMPLE_EMPLOYEE_STRATEGY = new RestDummyExampleEmployeeStrategy();
 
-    
+
 }

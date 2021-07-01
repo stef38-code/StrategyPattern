@@ -1,8 +1,8 @@
 package com.stephane.strategy.pattern.examples.client.rest.strategy.countries;
 
 
-import com.stephane.strategy.pattern.examples.client.rest.data.RestcountriesEuParLangueStrategies;
-import com.stephane.strategy.pattern.examples.client.rest.strategy.CommunStrategy;
+import com.stephane.strategy.pattern.examples.client.rest.definition.RestcountriesEuParLangueStrategies;
+import com.stephane.strategy.pattern.examples.client.rest.strategy.commun.CommunStrategy;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.util.Map;
