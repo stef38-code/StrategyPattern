@@ -1,19 +1,21 @@
-package com.stephane.strategy.pattern.examples.client.rest;
+package com.stephane.strategy.pattern.examples.client.rest.definition;
+
+import com.stephane.strategy.pattern.examples.client.rest.ClientRestStrategies;
 
 /*************************************************************
  *
- * (c) Ag2r - La Mondiale, 2021. Tous droits reserves.
+ *
  *
  * ----------------------------------------------------------
  * Project: strategypattern
  * Package: com.stephane.strategy.pattern.examples.client.rest
  * ----------------------------------------------------------
  * Date: 25 juin 2021,
- * Time: 13:23
+ * Time: 13:39
  * ----------------------------------------------------------
  * Author: betton
  * ----------------------------------------------------------
  * Description:
  *************************************************************/
-public class SampleClientRest {
+public class RestcountriesEuParLangueStrategies extends ClientRestStrategies< RestcountriesEuParLangueStrategies > {
 }
