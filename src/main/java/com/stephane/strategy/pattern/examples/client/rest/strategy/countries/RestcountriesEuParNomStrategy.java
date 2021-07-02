@@ -36,4 +36,24 @@ public class RestcountriesEuParNomStrategy extends CommunStrategy< Restcountries
         return getDefaultHeaders();
     }
 
+    @Override
+    public <T> T recuperer(Class<T> clazzReponse) {
+        return null;
+    }
+
+    @Override
+    public <T> T supprimer(Class<T> clazzReponse) {
+        return null;
+    }
+
+    @Override
+    public <T, Q> T envoyer(Class<T> clazzReponse, Q donnees) {
+        return null;
+    }
+
+    @Override
+    public <T, Q> T remplacer(Class<T> clazzReponse, Q donnees) {
+        return null;
+    }
+
 }

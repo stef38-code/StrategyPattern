@@ -29,6 +29,15 @@ public abstract class CommunStrategy< D extends ClientRestStrategies< ? > > exte
     public abstract String getUrl();
 
     @Override
-    public abstract Map< String, String > getHeaders();
+    public abstract Map<String, String> getHeaders();
+
+    public abstract <T> T recuperer(Class<T> clazzReponse);
+
+    public abstract <T> T supprimer(Class<T> clazzReponse);
+
+    public abstract <T, Q> T envoyer(Class<T> clazzReponse, Q donnees);
+
+    public abstract <T, Q> T remplacer(Class<T> clazzReponse, Q donnees);
+
 }
 

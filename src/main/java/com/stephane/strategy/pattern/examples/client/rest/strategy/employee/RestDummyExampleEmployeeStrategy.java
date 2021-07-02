@@ -32,8 +32,28 @@ public class RestDummyExampleEmployeeStrategy extends CommunStrategy< RestDummyE
     }
 
     @Override
-    public Map< String, String > getHeaders() {
+    public Map<String, String> getHeaders() {
         return getDefaultHeaders();
+    }
+
+    @Override
+    public <T> T recuperer(Class<T> clazzReponse) {
+        return null;
+    }
+
+    @Override
+    public <T> T supprimer(Class<T> clazzReponse) {
+        return null;
+    }
+
+    @Override
+    public <T, Q> T envoyer(Class<T> clazzReponse, Q donnees) {
+        return null;
+    }
+
+    @Override
+    public <T, Q> T remplacer(Class<T> clazzReponse, Q donnees) {
+        return null;
     }
 
 }

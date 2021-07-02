@@ -30,7 +30,7 @@ import java.util.Map;
  *************************************************************/
 @Slf4j
 public class DefaultCommunActions {
-    @Getter
+    //@Getter
     private WebClient client = WebClient.create();
 
     @Getter(AccessLevel.PROTECTED)
@@ -47,7 +47,7 @@ public class DefaultCommunActions {
      */
     public String getClientStringBody() {
 
-        return getClient()
+        return client
                 .get()
                 .uri(getUrl())
                 .retrieve()
@@ -65,7 +65,7 @@ public class DefaultCommunActions {
     }
 
     private <T> T actionHttp(HttpMethod httpMethod, Class<T> clazzReponse) {
-        return getClient()
+        return client
                 .method(httpMethod)
                 .uri(getUrl())
                 .headers(httpHeaders ->
