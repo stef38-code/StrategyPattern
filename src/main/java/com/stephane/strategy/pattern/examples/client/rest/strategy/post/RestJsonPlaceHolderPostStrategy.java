@@ -40,12 +40,25 @@ public class RestJsonPlaceHolderPostStrategy extends CommunStrategy< RestJsonPla
 
     @Override
     public <T> T recuperer(Class<T> clazzReponse) {
-        return null;
+        return getWebClientGet()
+                .uri(getUrl())
+                .retrieve()
+                .bodyToMono(clazzReponse)
+                //
+                .block();
     }
 
     @Override
     public <T> T supprimer(Class<T> clazzReponse) {
-        return null;
+        return getWebClientDelete()
+                .uri(uriBuilder -> uriBuilder
+                        .path(getUrl().concat("/{post}"))
+                        .build(1))
+                .retrieve()
+                .bodyToMono(clazzReponse)
+                //
+                .block();
+
     }
 
     @Override

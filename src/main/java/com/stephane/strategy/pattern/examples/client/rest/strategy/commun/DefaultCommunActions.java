@@ -39,6 +39,22 @@ public class DefaultCommunActions {
     @Getter(AccessLevel.PROTECTED)
     private Map<String, String> headers;
 
+    public WebClient.UriSpec<WebClient.RequestBodySpec> getWebClientPost() {
+        return client.post();
+    }
+
+    public WebClient.RequestHeadersUriSpec<?> getWebClientGet() {
+        return client.get();
+    }
+
+    public WebClient.RequestHeadersUriSpec<WebClient.RequestBodySpec> getWebClientPut() {
+        return client.put();
+    }
+
+    public WebClient.RequestHeadersUriSpec<?> getWebClientDelete() {
+        return client.delete();
+    }
+
     /**
      * HTTP.GET method
      * Retourne juste le body sous forme d'une String
@@ -47,8 +63,7 @@ public class DefaultCommunActions {
      */
     public String getClientStringBody() {
 
-        return client
-                .get()
+        return getWebClientGet()
                 .uri(getUrl())
                 .retrieve()
                 .bodyToMono(String.class)

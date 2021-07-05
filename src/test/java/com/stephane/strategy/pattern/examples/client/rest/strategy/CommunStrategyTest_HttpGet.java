@@ -30,15 +30,11 @@ import static org.junit.jupiter.api.Assertions.assertAll;
  * Description:
  *************************************************************/
 @Slf4j
-
-/*@SpringBootTest
-@TestPropertySource(properties = {"restcountries.rest.v2.lang.fr=https://restcountries.eu/rest/v2/lang/fr\n" ,
-        "restcountries.rest.v2.name.france=https://restcountries.eu/rest/v2/name/france"})*/
-class CommunStrategyTest {
+class CommunStrategyTest_HttpGet {
 
     @Test
     void getActionHttpGet_NomFrance() {
-        ResponseItem[] response = ClientRestStrategies.RESTCOUNTRIES_EU_PAR_NOM_STRATEGY.actionHttpGet(ResponseItem[].class);
+        ResponseItem[] response = ClientRestStrategies.RESTCOUNTRIES_EU_PAR_NOM_STRATEGY.recuperer(ResponseItem[].class);
         assertThat(response).isNotNull();
         assertThat(response).isNotNull().isNotEmpty();
         //List<ResponseItem> response = body[0].getResponse();
@@ -76,7 +72,7 @@ class CommunStrategyTest {
 
     @Test
     void getActionHttpGet_LangueFr() {
-        ResponseItem[] response = ClientRestStrategies.RESTCOUNTRIES_EU_PAR_LANGUE_STRATEGY.actionHttpGet(ResponseItem[].class);
+        ResponseItem[] response = ClientRestStrategies.RESTCOUNTRIES_EU_PAR_LANGUE_STRATEGY.recuperer(ResponseItem[].class);
         assertThat(response).isNotNull();
         log.info(String.valueOf(response));
 
@@ -84,7 +80,7 @@ class CommunStrategyTest {
 
     @Test
     void getActionHttpGet_Post() {
-        Post[] response = ClientRestStrategies.REST_JSON_PLACE_HOLDER_POST_STRATEGY.actionHttpGet(Post[].class);
+        Post[] response = ClientRestStrategies.REST_JSON_PLACE_HOLDER_POST_STRATEGY.recuperer(Post[].class);
         assertThat(response).isNotNull().isNotEmpty();
         log.info(String.valueOf(response));
         Stream.of(response).forEach(post -> {
@@ -100,7 +96,7 @@ class CommunStrategyTest {
 
     @Test
     void getActionHttpGet_Employee() {
-        Employee response = ClientRestStrategies.REST_DUMMY_EXAMPLE_EMPLOYEE_STRATEGY.actionHttpGet(Employee.class);
+        Employee response = ClientRestStrategies.REST_DUMMY_EXAMPLE_EMPLOYEE_STRATEGY.recuperer(Employee.class);
         assertThat(response).isNotNull();
         log.info(String.valueOf(response));
         assertThat(response.getStatus()).isNotBlank().isEqualTo("success");

@@ -38,7 +38,12 @@ public class RestcountriesEuParNomStrategy extends CommunStrategy< Restcountries
 
     @Override
     public <T> T recuperer(Class<T> clazzReponse) {
-        return null;
+        return getWebClientGet()
+                .uri(getUrl())
+                .retrieve()
+                .bodyToMono(clazzReponse)
+                //
+                .block();
     }
 
     @Override
