@@ -2,10 +2,12 @@ package com.stephane.strategy.pattern.examples.client.rest.strategy.post;
 
 
 import com.stephane.strategy.pattern.examples.client.rest.definition.RestJsonPlaceHolderPostStrategies;
+import com.stephane.strategy.pattern.examples.client.rest.response.post.Post;
 import com.stephane.strategy.pattern.examples.client.rest.strategy.commun.CommunStrategy;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.util.Map;
+import java.util.Optional;
 
 /*************************************************************
  *
@@ -22,7 +24,7 @@ import java.util.Map;
  * ----------------------------------------------------------
  * Description:
  *************************************************************/
-public class RestJsonPlaceHolderPostStrategy extends CommunStrategy< RestJsonPlaceHolderPostStrategies > {
+public class RestJsonPlaceHolderPostStrategy extends CommunStrategy<RestJsonPlaceHolderPostStrategies, Post> {
     private String url = "https://jsonplaceholder.typicode.com/posts";
 
     @Value("${restcountries.rest.v2.lang.fr}")
@@ -49,25 +51,23 @@ public class RestJsonPlaceHolderPostStrategy extends CommunStrategy< RestJsonPla
     }
 
     @Override
-    public <T> T supprimer(Class<T> clazzReponse) {
+    public <T> T supprimer(Class<T> clazzReponse, Optional<Post> donnees) {
         return getWebClientDelete()
                 .uri(uriBuilder -> uriBuilder
                         .path(getUrl().concat("/{post}"))
                         .build(1))
                 .retrieve()
-                .bodyToMono(clazzReponse)
-                //
-                .block();
+                .bodyToMono(clazzReponse).block();
 
     }
 
     @Override
-    public <T, Q> T envoyer(Class<T> clazzReponse, Q donnees) {
+    public <T> T envoyer(Class<T> clazzReponse, Optional<Post> donnees) {
         return null;
     }
 
     @Override
-    public <T, Q> T remplacer(Class<T> clazzReponse, Q donnees) {
+    public <T> T remplacer(Class<T> clazzReponse, Optional<Post> donnees) {
         return null;
     }
 

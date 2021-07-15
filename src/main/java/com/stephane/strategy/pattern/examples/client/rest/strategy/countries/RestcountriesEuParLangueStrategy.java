@@ -2,10 +2,12 @@ package com.stephane.strategy.pattern.examples.client.rest.strategy.countries;
 
 
 import com.stephane.strategy.pattern.examples.client.rest.definition.RestcountriesEuParLangueStrategies;
+import com.stephane.strategy.pattern.examples.client.rest.response.countries.LanguagesItem;
 import com.stephane.strategy.pattern.examples.client.rest.strategy.commun.CommunStrategy;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.util.Map;
+import java.util.Optional;
 
 /*************************************************************
  *
@@ -22,7 +24,7 @@ import java.util.Map;
  * ----------------------------------------------------------
  * Description:
  *************************************************************/
-public class RestcountriesEuParLangueStrategy extends CommunStrategy< RestcountriesEuParLangueStrategies > {
+public class RestcountriesEuParLangueStrategy extends CommunStrategy<RestcountriesEuParLangueStrategies, LanguagesItem> {
     private String url = "https://restcountries.eu/rest/v2/lang/fr";
 
     @Value("${restcountries.rest.v2.lang.fr}")
@@ -49,17 +51,17 @@ public class RestcountriesEuParLangueStrategy extends CommunStrategy< Restcountr
     }
 
     @Override
-    public <T> T supprimer(Class<T> clazzReponse) {
+    public <T> T supprimer(Class<T> clazzReponse, Optional<LanguagesItem> donnees) {
         return null;
     }
 
     @Override
-    public <T, Q> T envoyer(Class<T> clazzReponse, Q donnees) {
+    public <T> T envoyer(Class<T> clazzReponse, Optional<LanguagesItem> donnees) {
         return null;
     }
 
     @Override
-    public <T, Q> T remplacer(Class<T> clazzReponse, Q donnees) {
+    public <T> T remplacer(Class<T> clazzReponse, Optional<LanguagesItem> donnees) {
         return null;
     }
 

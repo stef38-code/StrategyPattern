@@ -1,7 +1,7 @@
 package com.stephane.strategy.pattern.examples.client.rest.strategy;
 
 import com.stephane.strategy.pattern.examples.client.rest.ClientRestStrategies;
-import com.stephane.strategy.pattern.examples.client.rest.response.countries.ResponseItem;
+import com.stephane.strategy.pattern.examples.client.rest.response.countries.Country;
 import com.stephane.strategy.pattern.examples.client.rest.response.employee.Data;
 import com.stephane.strategy.pattern.examples.client.rest.response.employee.Employee;
 import com.stephane.strategy.pattern.examples.client.rest.response.post.Post;
@@ -34,12 +34,12 @@ class CommunStrategyTest_HttpGet {
 
     @Test
     void getActionHttpGet_NomFrance() {
-        ResponseItem[] response = ClientRestStrategies.RESTCOUNTRIES_EU_PAR_NOM_STRATEGY.recuperer(ResponseItem[].class);
+        Country[] response = ClientRestStrategies.RESTCOUNTRIES_EU_PAR_NOM_STRATEGY.recuperer(Country[].class);
         assertThat(response).isNotNull();
         assertThat(response).isNotNull().isNotEmpty();
         //List<ResponseItem> response = body[0].getResponse();
         assertThat(response).isNotEmpty().hasSize(1);
-        ResponseItem ReponseFrance = response[0];
+        Country ReponseFrance = response[0];
         assertThat(ReponseFrance.getArea()).isEqualTo(640679);
         assertThat(ReponseFrance.getNativeName()).isEqualTo("France");
         assertThat(ReponseFrance.getCapital()).isEqualTo("Paris");
@@ -72,7 +72,7 @@ class CommunStrategyTest_HttpGet {
 
     @Test
     void getActionHttpGet_LangueFr() {
-        ResponseItem[] response = ClientRestStrategies.RESTCOUNTRIES_EU_PAR_LANGUE_STRATEGY.recuperer(ResponseItem[].class);
+        Country[] response = ClientRestStrategies.RESTCOUNTRIES_EU_PAR_LANGUE_STRATEGY.recuperer(Country[].class);
         assertThat(response).isNotNull();
         log.info(String.valueOf(response));
 

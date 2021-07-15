@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public @Data
-class ResponseItem {
+class Country {
 	private int area;
 	private String nativeName;
 	private String capital;

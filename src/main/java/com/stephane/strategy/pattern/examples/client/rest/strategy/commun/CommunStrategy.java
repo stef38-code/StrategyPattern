@@ -3,6 +3,7 @@ package com.stephane.strategy.pattern.examples.client.rest.strategy.commun;
 import com.stephane.strategy.pattern.examples.client.rest.ClientRestStrategies;
 
 import java.util.Map;
+import java.util.Optional;
 
 /*************************************************************
  *
@@ -19,7 +20,7 @@ import java.util.Map;
  * ----------------------------------------------------------
  * Description:
  *************************************************************/
-public abstract class CommunStrategy< D extends ClientRestStrategies< ? > > extends DefaultCommunActions {
+public abstract class CommunStrategy<D extends ClientRestStrategies<?>, Q> extends DefaultCommunActions {
     /**
      * Url de connexion
      *
@@ -33,11 +34,11 @@ public abstract class CommunStrategy< D extends ClientRestStrategies< ? > > exte
 
     public abstract <T> T recuperer(Class<T> clazzReponse);
 
-    public abstract <T> T supprimer(Class<T> clazzReponse);
+    public abstract <T> T supprimer(Class<T> clazzReponse, Optional<Q> donnees);
 
-    public abstract <T, Q> T envoyer(Class<T> clazzReponse, Q donnees);
+    public abstract <T> T envoyer(Class<T> clazzReponse, Optional<Q> donnees);
 
-    public abstract <T, Q> T remplacer(Class<T> clazzReponse, Q donnees);
+    public abstract <T> T remplacer(Class<T> clazzReponse, Optional<Q> donnees);
 
 }
 

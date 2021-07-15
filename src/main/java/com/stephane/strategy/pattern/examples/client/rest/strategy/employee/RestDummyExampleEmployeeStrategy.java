@@ -2,9 +2,11 @@ package com.stephane.strategy.pattern.examples.client.rest.strategy.employee;
 
 
 import com.stephane.strategy.pattern.examples.client.rest.definition.RestDummyExampleEmployeeStrategies;
+import com.stephane.strategy.pattern.examples.client.rest.response.employee.Employee;
 import com.stephane.strategy.pattern.examples.client.rest.strategy.commun.CommunStrategy;
 
 import java.util.Map;
+import java.util.Optional;
 
 /*************************************************************
  *
@@ -21,7 +23,7 @@ import java.util.Map;
  * ----------------------------------------------------------
  * Description:
  *************************************************************/
-public class RestDummyExampleEmployeeStrategy extends CommunStrategy< RestDummyExampleEmployeeStrategies > {
+public class RestDummyExampleEmployeeStrategy extends CommunStrategy<RestDummyExampleEmployeeStrategies, Employee> {
 
     private String url = "http://dummy.restapiexample.com/api/v1/employees";
 
@@ -47,17 +49,17 @@ public class RestDummyExampleEmployeeStrategy extends CommunStrategy< RestDummyE
     }
 
     @Override
-    public <T> T supprimer(Class<T> clazzReponse) {
+    public <T> T supprimer(Class<T> clazzReponse, Optional<Employee> donnees) {
         return null;
     }
 
     @Override
-    public <T, Q> T envoyer(Class<T> clazzReponse, Q donnees) {
+    public <T> T envoyer(Class<T> clazzReponse, Optional<Employee> donnees) {
         return null;
     }
 
     @Override
-    public <T, Q> T remplacer(Class<T> clazzReponse, Q donnees) {
+    public <T> T remplacer(Class<T> clazzReponse, Optional<Employee> donnees) {
         return null;
     }
 
